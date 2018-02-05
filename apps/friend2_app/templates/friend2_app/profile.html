@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{user.name}}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'friend2_app/css/styles.css' %}">
+</head>
+<body>
+    <fieldset>
+        <h5><a href='/friends'>Home</a></h5> 
+        <h5><a href='/logout'>Logout</a></h5>
+        <h3>{{user.alias}}'s Profile</h3>
+        <h4>Name: {{user.name}}</h4>
+        <h4>Email: {{user.email}}</h4>
+    </fieldset>
+</body>
+</html>

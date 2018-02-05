@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load staticfiles %}
+    <title>Login/Registration</title>
+    <style>
+            .error{
+                padding: 10px;
+                background-color: red;
+                color: white;
+            }
+        </style>
+	<link rel="stylesheet" href="{% static 'friend2_app/css/styles.css' %}">
+</head>
+	<body>
+        <fieldset>
+
+            <h1>Welcome!</h1>
+	        <legend>Register</legend>
+		    <form action="/register" method="post">
+                {% csrf_token %}						
+                Name:<input type="text" name="name">
+                Alias:<input type="text" name="alias">
+                Email:<input type="text" name="email">
+                Password:<input type="password" name="password">
+                <h3>*Password should be at least 8 characters.</h3>
+                Confirm PW:<input type="password" name="confirm_password">
+                Date of Birth:<input type="date" name="bday">
+                <button type="submit" name="belt_app" value="register">Register</button>
+            </form>
+        </fieldset>
+        {% if messages %}
+        {% for message in messages %}
+            <p class="error">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+		<fieldset>		
+		    <legend>Login</legend>
+		    <form action="/login" method="post">
+		    {% csrf_token %}
+                Email:<input type="text" name="email">
+                Password:<input type="password" name="password">
+            <button type="submit" name="belt_app" value="login">Login</button>
+            </form>					
+        </fieldset>				
+	</body>
+</html>
